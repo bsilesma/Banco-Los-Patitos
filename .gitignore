@@ -1,0 +1,55 @@
+## Visual Studio / .NET - basado en github/gitignore VisualStudio.gitignore (subconjunto)
+
+# Carpeta de cache local de Visual Studio
+.vs/
+
+# Archivos de usuario (configuracion personal de cada maquina)
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.rsuser
+
+# Resultados de compilacion
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Publicacion
+publish/
+*.pubxml
+*.publishproj
+PublishScripts/
+
+# NuGet
+*.nupkg
+*.snupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+
+# Resultados de pruebas
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+TestResults/
+coverage*.json
+coverage*.xml
+
+# Rider / VS Code
+.idea/
+.vscode/
+
+# Archivos temporales
+*.tmp
+*.cache
+*.log
+~$*
+
+# Sistema operativo
+Thumbs.db
+Desktop.ini
+.DS_Store
