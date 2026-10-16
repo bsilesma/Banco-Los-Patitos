@@ -1,8 +1,8 @@
-using Banco_Los_Patitos.Models;
+using BancoLosPatitos.UI.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace Banco_Los_Patitos.Controllers
+namespace BancoLosPatitos.UI.Controllers
 {
     public class HomeController : Controller
     {

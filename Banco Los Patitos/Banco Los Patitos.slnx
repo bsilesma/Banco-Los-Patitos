@@ -1,3 +1,6 @@
 <Solution>
-  <Project Path="Banco Los Patitos/Banco Los Patitos.csproj" />
+  <Project Path="BancoLosPatitos.Abstracciones/BancoLosPatitos.Abstracciones.csproj" />
+  <Project Path="BancoLosPatitos.AccesoADatos/BancoLosPatitos.AccesoADatos.csproj" />
+  <Project Path="BancoLosPatitos.LogicaDeNegocio/BancoLosPatitos.LogicaDeNegocio.csproj" />
+  <Project Path="BancoLosPatitos.UI/BancoLosPatitos.UI.csproj" />
 </Solution>

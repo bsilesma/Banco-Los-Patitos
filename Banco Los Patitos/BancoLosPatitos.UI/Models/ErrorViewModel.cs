@@ -1,4 +1,4 @@
-namespace Banco_Los_Patitos.Models
+namespace BancoLosPatitos.UI.Models
 {
     public class ErrorViewModel
     {
