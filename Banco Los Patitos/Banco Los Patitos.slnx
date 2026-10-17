@@ -1,3 +1,6 @@
 <Solution>
-  <Project Path="Banco los Patitos/Banco los Patitos.csproj" />
+  <Project Path="BancoLosPatitos.Abstracciones/BancoLosPatitos.Abstracciones.csproj" Id="0d14d316-5384-4500-b3d8-a74c206c7ded" />
+  <Project Path="BancoLosPatitos.AccesoADatos/BancoLosPatitos.AccesoADatos.csproj" Id="4f97ab4d-436e-4aaa-bbcc-5fade7778481" />
+  <Project Path="BancoLosPatitos.LogicaDeNegocio/BancoLosPatitos.LogicaDeNegocio.csproj" Id="785127db-4c12-4ca1-b01a-499dcc0b6e8a" />
+  <Project Path="BancoLosPatitos.UI/BancoLosPatitos.UI.csproj" Id="86558d8f-0fa7-456b-9592-cc32dd81c8b4" />
 </Solution>
