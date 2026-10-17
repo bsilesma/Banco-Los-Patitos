@@ -1,0 +1,87 @@
+﻿@model BancoLosPatitos.Abstracciones.ModelosParaUI.ComercioDto
+
+@{
+    ViewBag.Title = "Registrar comercio";
+}
+
+<h2>Registrar comercio</h2>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.Error
+    </div>
+}
+
+@using (Html.BeginForm(
+    "RegistrarComercio",
+    "Comercio",
+    FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="mb-3">
+        @Html.LabelFor(model => model.Identificacion, "Identificación", new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.Identificacion, new { @class = "form-control", maxlength = "30" })
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(model => model.TipoIdentificacion, "Tipo de identificación", new { @class = "form-label" })
+        @Html.DropDownListFor(
+            model => model.TipoIdentificacion,
+            new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Física", Value = "1" },
+                new SelectListItem { Text = "Jurídica", Value = "2" }
+            },
+            "-- Seleccione un tipo --",
+            new { @class = "form-select" }
+        )
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(model => model.Nombre, "Nombre", new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", maxlength = "200" })
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(model => model.TipoDeComercio, "Tipo de comercio", new { @class = "form-label" })
+        @Html.DropDownListFor(
+            model => model.TipoDeComercio,
+            new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Restaurantes", Value = "1" },
+                new SelectListItem { Text = "Supermercados", Value = "2" },
+                new SelectListItem { Text = "Ferreterías", Value = "3" },
+                new SelectListItem { Text = "Otros", Value = "4" }
+            },
+            "-- Seleccione un tipo --",
+            new { @class = "form-select" }
+        )
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(model => model.Telefono, "Teléfono", new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.Telefono, new { @class = "form-control", maxlength = "8" })
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(model => model.CorreoElectronico, "Correo electrónico", new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.CorreoElectronico, new { @class = "form-control", maxlength = "200" })
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(model => model.Direccion, "Dirección", new { @class = "form-label" })
+        @Html.TextAreaFor(model => model.Direccion, new { @class = "form-control", maxlength = "500", rows = "3" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Registrar</button>
+
+    @Html.ActionLink(
+        "Volver",
+        "ListarComercios",
+        "Comercio",
+        null,
+        new { @class = "btn btn-secondary" }
+    )
+}

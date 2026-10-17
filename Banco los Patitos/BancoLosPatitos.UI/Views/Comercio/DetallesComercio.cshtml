@@ -1,0 +1,50 @@
+﻿@model BancoLosPatitos.Abstracciones.ModelosParaUI.ComercioDto
+
+@{
+    ViewBag.Title = "Detalles del comercio";
+}
+
+<h2>Detalles del comercio</h2>
+
+<p><strong>Identificación:</strong> @Model.Identificacion</p>
+<p><strong>Tipo de identificación:</strong> @Model.TipoIdentificacionTexto</p>
+<p><strong>Nombre:</strong> @Model.Nombre</p>
+<p><strong>Tipo de comercio:</strong> @Model.TipoDeComercioTexto</p>
+<p><strong>Teléfono:</strong> @Model.Telefono</p>
+<p><strong>Correo electrónico:</strong> @Model.CorreoElectronico</p>
+<p><strong>Dirección:</strong> @Model.Direccion</p>
+
+<p>
+    <strong>Fecha de registro:</strong>
+    @Model.FechaDeRegistro.ToString("dd/MM/yyyy hh:mm tt")
+</p>
+
+<p>
+    <strong>Fecha de modificación:</strong>
+    @if (Model.FechaDeModificacion.HasValue)
+    {
+        @Model.FechaDeModificacion.Value.ToString("dd/MM/yyyy hh:mm tt")
+    }
+    else
+    {
+        <span>Sin modificaciones</span>
+    }
+</p>
+
+<p><strong>Estado:</strong> @Model.EstadoTexto</p>
+
+@Html.ActionLink(
+    "Editar",
+    "EditarComercio",
+    "Comercio",
+    new { id = Model.IdComercio },
+    new { @class = "btn btn-warning" }
+)
+
+@Html.ActionLink(
+    "Volver",
+    "ListarComercios",
+    "Comercio",
+    null,
+    new { @class = "btn btn-secondary" }
+)
