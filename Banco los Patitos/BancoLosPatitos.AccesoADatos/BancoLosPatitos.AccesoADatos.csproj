@@ -54,9 +54,17 @@
     <Compile Include="Contexto\BancoLosPatitosContext.cs" />
     <Compile Include="Entidades\BitacoraEvento.cs" />
     <Compile Include="Entidades\Comercio.cs" />
+    <Compile Include="Migrations\202610181834089_Inicial.cs" />
+    <Compile Include="Migrations\202610181834089_Inicial.Designer.cs">
+      <DependentUpon>202610181834089_Inicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\202610181834089_Inicial.resx">
+      <DependentUpon>202610181834089_Inicial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
