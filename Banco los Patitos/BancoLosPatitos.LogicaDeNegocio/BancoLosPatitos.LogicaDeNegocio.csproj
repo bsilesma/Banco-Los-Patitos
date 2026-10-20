@@ -55,6 +55,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bitacora\RegistrarEvento\RegistrarEventoLN.cs" />
+    <Compile Include="Cajas\EditarCaja\EditarCajaLN.cs" />
+    <Compile Include="Cajas\ListarCajas\ListarCajasLN.cs" />
+    <Compile Include="Cajas\ObtenerCaja\ObtenerCajaLN.cs" />
+    <Compile Include="Cajas\RegistrarCaja\RegistrarCajaLN.cs" />
+    <Compile Include="Cajas\ValidadorDeCaja.cs" />
     <Compile Include="Comercios\EditarComercio\EditarComercioLN.cs" />
     <Compile Include="Comercios\ListarComercios\ListarComerciosLN.cs" />
     <Compile Include="Comercios\ObtenerComercio\ObtenerComercioLN.cs" />
@@ -75,10 +80,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Bitacora\ListarEventos\" />
-    <Folder Include="Cajas\EditarCaja\" />
-    <Folder Include="Cajas\ListarCajas\" />
-    <Folder Include="Cajas\ObtenerCaja\" />
-    <Folder Include="Cajas\RegistrarCaja\" />
     <Folder Include="Sinpes\ListarSinpePorCaja\" />
     <Folder Include="Sinpes\RegistrarSinpe\" />
   </ItemGroup>

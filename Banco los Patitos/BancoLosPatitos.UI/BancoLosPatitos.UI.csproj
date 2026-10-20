@@ -131,6 +131,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\CajaController.cs" />
     <Compile Include="Controllers\ComercioController.cs" />
     <Compile Include="Controllers\ControladorBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -187,6 +188,9 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Caja\EditarCaja.cshtml" />
+    <Content Include="Views\Caja\ListarCajas.cshtml" />
+    <Content Include="Views\Caja\RegistrarCaja.cshtml" />
     <Content Include="Views\Comercio\DetallesComercio.cshtml" />
     <Content Include="Views\Comercio\EditarComercio.cshtml" />
     <Content Include="Views\Comercio\ListarComercios.cshtml" />
@@ -196,7 +200,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Bitacora\" />
-    <Folder Include="Views\Caja\" />
     <Folder Include="Views\Sinpe\" />
   </ItemGroup>
   <ItemGroup>

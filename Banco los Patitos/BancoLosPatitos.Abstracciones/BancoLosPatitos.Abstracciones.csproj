@@ -55,20 +55,21 @@
     <Compile Include="LogicaDeNegocio\Bitacora\RegistrarEvento\IRegistrarEventoLN.cs" />
     <Compile Include="LogicaDeNegocio\Bitacora\RegistrarEvento\TablasDeEvento.cs" />
     <Compile Include="LogicaDeNegocio\Bitacora\RegistrarEvento\TiposDeEvento.cs" />
+    <Compile Include="LogicaDeNegocio\Cajas\EditarCaja\IEditarCajaLN.cs" />
+    <Compile Include="LogicaDeNegocio\Cajas\ListarCajas\IListarCajasLN.cs" />
+    <Compile Include="LogicaDeNegocio\Cajas\ObtenerCaja\IObtenerCajaLN.cs" />
+    <Compile Include="LogicaDeNegocio\Cajas\RegistrarCaja\IRegistrarCajaLN.cs" />
     <Compile Include="LogicaDeNegocio\Comercios\EditarComercio\IEditarComercioLN.cs" />
     <Compile Include="LogicaDeNegocio\Comercios\ListarComercios\IListarComerciosLN.cs" />
     <Compile Include="LogicaDeNegocio\Comercios\ObtenerComercio\IObtenerComercioLN.cs" />
     <Compile Include="LogicaDeNegocio\Comercios\RegistrarComercio\IRegistrarComercioLN.cs" />
+    <Compile Include="ModelosParaUI\CajaDto.cs" />
     <Compile Include="ModelosParaUI\ComercioDto.cs" />
     <Compile Include="ModelosParaUI\EventoBitacoraDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="LogicaDeNegocio\Bitacora\ListarEventos\" />
-    <Folder Include="LogicaDeNegocio\Cajas\EditarCaja\" />
-    <Folder Include="LogicaDeNegocio\Cajas\ListarCajas\" />
-    <Folder Include="LogicaDeNegocio\Cajas\ObtenerCaja\" />
-    <Folder Include="LogicaDeNegocio\Cajas\RegistrarCaja\" />
     <Folder Include="LogicaDeNegocio\Sinpes\ListarSinpePorCaja\" />
     <Folder Include="LogicaDeNegocio\Sinpes\RegistrarSinpe\" />
   </ItemGroup>

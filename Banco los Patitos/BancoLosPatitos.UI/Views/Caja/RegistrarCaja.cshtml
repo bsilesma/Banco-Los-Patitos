@@ -1,0 +1,51 @@
+﻿@model BancoLosPatitos.Abstracciones.ModelosParaUI.CajaDto
+
+@{
+    ViewBag.Title = "Registrar caja";
+}
+
+<h2>Registrar caja</h2>
+
+<p><strong>Comercio:</strong> @ViewBag.NombreDelComercio</p>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.Error
+    </div>
+}
+
+@using (Html.BeginForm(
+    "RegistrarCaja",
+    "Caja",
+    FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(model => model.IdComercio)
+
+    <div class="mb-3">
+        @Html.LabelFor(model => model.Nombre, "Nombre", new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", maxlength = "100" })
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(model => model.Descripcion, "Descripción", new { @class = "form-label" })
+        @Html.TextAreaFor(model => model.Descripcion, new { @class = "form-control", maxlength = "150", rows = "2" })
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(model => model.TelefonoSINPE, "Teléfono SINPE", new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.TelefonoSINPE, new { @class = "form-control", maxlength = "8" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Registrar</button>
+
+    @Html.ActionLink(
+        "Volver",
+        "ListarCajas",
+        "Caja",
+        new { idComercio = Model.IdComercio },
+        new { @class = "btn btn-secondary" }
+    )
+}
