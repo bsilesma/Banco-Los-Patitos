@@ -53,10 +53,15 @@
   <ItemGroup>
     <Compile Include="Contexto\BancoLosPatitosContext.cs" />
     <Compile Include="Entidades\BitacoraEvento.cs" />
+    <Compile Include="Entidades\Caja.cs" />
     <Compile Include="Entidades\Comercio.cs" />
     <Compile Include="Migrations\202610181834089_Inicial.cs" />
     <Compile Include="Migrations\202610181834089_Inicial.Designer.cs">
       <DependentUpon>202610181834089_Inicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202610200546570_AgregarCajas.cs" />
+    <Compile Include="Migrations\202610200546570_AgregarCajas.Designer.cs">
+      <DependentUpon>202610200546570_AgregarCajas.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -64,6 +69,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202610181834089_Inicial.resx">
       <DependentUpon>202610181834089_Inicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202610200546570_AgregarCajas.resx">
+      <DependentUpon>202610200546570_AgregarCajas.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

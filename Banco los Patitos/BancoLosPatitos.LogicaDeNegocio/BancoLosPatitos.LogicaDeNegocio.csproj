@@ -61,6 +61,7 @@
     <Compile Include="Comercios\RegistrarComercio\RegistrarComercioLN.cs" />
     <Compile Include="Comercios\ValidadorDeComercio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValidacionesComunes.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BancoLosPatitos.Abstracciones\BancoLosPatitos.Abstracciones.csproj">
