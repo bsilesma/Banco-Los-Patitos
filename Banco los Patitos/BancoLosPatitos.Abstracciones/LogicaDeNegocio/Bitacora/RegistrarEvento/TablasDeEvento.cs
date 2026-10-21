@@ -4,5 +4,6 @@
     {
         public const string Comercios = "Comercios";
         public const string Cajas = "Cajas";
+        public const string Sinpe = "Sinpe";
     }
 }

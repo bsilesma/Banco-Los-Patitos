@@ -1,0 +1,54 @@
+﻿@model BancoLosPatitos.Abstracciones.ModelosParaUI.SinpeDto
+
+@{
+    ViewBag.Title = "Registrar SINPE";
+}
+
+<h2>Registrar SINPE</h2>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.Error
+    </div>
+}
+
+@using (Html.BeginForm(
+    "RegistrarSinpe",
+    "Sinpe",
+    FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="mb-3">
+        @Html.LabelFor(model => model.TelefonoOrigen, "Teléfono origen", new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.TelefonoOrigen, new { @class = "form-control", maxlength = "8" })
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(model => model.NombreOrigen, "Nombre origen", new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.NombreOrigen, new { @class = "form-control", maxlength = "200" })
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(model => model.TelefonoDestinatario, "Teléfono destinatario", new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.TelefonoDestinatario, new { @class = "form-control", maxlength = "8" })
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(model => model.NombreDestinatario, "Nombre destinatario", new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.NombreDestinatario, new { @class = "form-control", maxlength = "200" })
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(model => model.Monto, "Monto", new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.Monto, new { @class = "form-control", placeholder = "Ej.: 4500,50" })
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(model => model.Descripcion, "Descripción (opcional)", new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.Descripcion, new { @class = "form-control", maxlength = "50" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Registrar SINPE</button>
+}

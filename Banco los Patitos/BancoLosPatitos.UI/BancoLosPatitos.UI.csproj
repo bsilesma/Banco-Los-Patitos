@@ -134,6 +134,7 @@
     <Compile Include="Controllers\CajaController.cs" />
     <Compile Include="Controllers\ComercioController.cs" />
     <Compile Include="Controllers\ControladorBase.cs" />
+    <Compile Include="Controllers\SinpeController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -195,12 +196,13 @@
     <Content Include="Views\Comercio\EditarComercio.cshtml" />
     <Content Include="Views\Comercio\ListarComercios.cshtml" />
     <Content Include="Views\Comercio\RegistrarComercio.cshtml" />
+    <Content Include="Views\Sinpe\ListarSinpePorCaja.cshtml" />
+    <Content Include="Views\Sinpe\RegistrarSinpe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Bitacora\" />
-    <Folder Include="Views\Sinpe\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

@@ -64,6 +64,10 @@
     <Compile Include="Migrations\202610200546570_AgregarCajas.Designer.cs">
       <DependentUpon>202610200546570_AgregarCajas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202610210115292_AgregarSinpe.cs" />
+    <Compile Include="Migrations\202610210115292_AgregarSinpe.Designer.cs">
+      <DependentUpon>202610210115292_AgregarSinpe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -73,6 +77,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202610200546570_AgregarCajas.resx">
       <DependentUpon>202610200546570_AgregarCajas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202610210115292_AgregarSinpe.resx">
+      <DependentUpon>202610210115292_AgregarSinpe.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

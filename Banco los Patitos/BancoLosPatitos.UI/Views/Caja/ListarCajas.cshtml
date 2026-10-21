@@ -78,6 +78,14 @@
                             new { id = item.IdCaja },
                             new { @class = "btn btn-warning btn-sm" }
                         )
+
+                        @Html.ActionLink(
+                            "Ver SINPE",
+                            "ListarSinpePorCaja",
+                            "Sinpe",
+                            new { id = item.IdCaja },
+                            new { @class = "btn btn-info btn-sm" }
+                        )
                     </td>
                 </tr>
             }

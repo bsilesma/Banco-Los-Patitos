@@ -63,15 +63,16 @@
     <Compile Include="LogicaDeNegocio\Comercios\ListarComercios\IListarComerciosLN.cs" />
     <Compile Include="LogicaDeNegocio\Comercios\ObtenerComercio\IObtenerComercioLN.cs" />
     <Compile Include="LogicaDeNegocio\Comercios\RegistrarComercio\IRegistrarComercioLN.cs" />
+    <Compile Include="LogicaDeNegocio\Sinpes\ListarSinpePorCaja\IListarSinpePorCajaLN.cs" />
+    <Compile Include="LogicaDeNegocio\Sinpes\RegistrarSinpe\IRegistrarSinpeLN.cs" />
     <Compile Include="ModelosParaUI\CajaDto.cs" />
     <Compile Include="ModelosParaUI\ComercioDto.cs" />
     <Compile Include="ModelosParaUI\EventoBitacoraDto.cs" />
+    <Compile Include="ModelosParaUI\SinpeDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="LogicaDeNegocio\Bitacora\ListarEventos\" />
-    <Folder Include="LogicaDeNegocio\Sinpes\ListarSinpePorCaja\" />
-    <Folder Include="LogicaDeNegocio\Sinpes\RegistrarSinpe\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
