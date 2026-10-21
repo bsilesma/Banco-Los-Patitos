@@ -55,6 +55,7 @@
     <Compile Include="Entidades\BitacoraEvento.cs" />
     <Compile Include="Entidades\Caja.cs" />
     <Compile Include="Entidades\Comercio.cs" />
+    <Compile Include="Entidades\Sinpe.cs" />
     <Compile Include="Migrations\202610181834089_Inicial.cs" />
     <Compile Include="Migrations\202610181834089_Inicial.Designer.cs">
       <DependentUpon>202610181834089_Inicial.cs</DependentUpon>
