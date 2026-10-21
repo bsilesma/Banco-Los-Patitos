@@ -1,33 +1,28 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Inicio";
 }
 
 <main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
+    <section class="row" aria-labelledby="title">
+        <h1 id="title">Banco Los Patitos</h1>
+        <p class="lead">SINPE Empresarial: la plataforma para que su comercio confirme, caja por caja, cada pago recibido por SINPE Móvil.</p>
     </section>
 
     <div class="row">
-        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-            <h2 id="gettingStartedTitle">Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <section class="col-md-4" aria-labelledby="comerciosTitle">
+            <h2 id="comerciosTitle">Comercios</h2>
+            <p>Afilie su comercio y administre las cajas que reciben pagos, cada una con su propio teléfono SINPE.</p>
+            <p>@Html.ActionLink("Ver comercios", "ListarComercios", "Comercio", null, new { @class = "btn btn-outline-dark" })</p>
         </section>
-        <section class="col-md-4" aria-labelledby="librariesTitle">
-            <h2 id="librariesTitle">Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <section class="col-md-4" aria-labelledby="sinpeTitle">
+            <h2 id="sinpeTitle">SINPE</h2>
+            <p>Registre pagos electrónicos hacia las cajas activas y consulte los SINPE que recibió cada una.</p>
+            <p>@Html.ActionLink("Registrar SINPE", "RegistrarSinpe", "Sinpe", null, new { @class = "btn btn-outline-dark" })</p>
         </section>
-        <section class="col-md-4" aria-labelledby="hostingTitle">
-            <h2 id="hostingTitle">Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <section class="col-md-4" aria-labelledby="bitacoraTitle">
+            <h2 id="bitacoraTitle">Bitácora</h2>
+            <p>Cada registro, edición y error queda guardado con la fecha y los datos antes y después del cambio.</p>
+            <p>@Html.ActionLink("Ver bitácora", "ListarEventos", "Bitacora", null, new { @class = "btn btn-outline-dark" })</p>
         </section>
     </div>
 </main>

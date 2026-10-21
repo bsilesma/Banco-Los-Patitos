@@ -15,14 +15,14 @@ namespace BancoLosPatitos.UI.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "SINPE Empresarial para comercios afiliados.";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Estamos para ayudarle con su afiliación y sus pagos.";
 
             return View();
         }
