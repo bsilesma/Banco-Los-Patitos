@@ -52,6 +52,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Excepciones\ReglaDeNegocioException.cs" />
+    <Compile Include="LogicaDeNegocio\Bitacora\ListarEventos\IListarEventosLN.cs" />
+    <Compile Include="LogicaDeNegocio\Bitacora\ObtenerEvento\IObtenerEventoLN.cs" />
     <Compile Include="LogicaDeNegocio\Bitacora\RegistrarEvento\IRegistrarEventoLN.cs" />
     <Compile Include="LogicaDeNegocio\Bitacora\RegistrarEvento\TablasDeEvento.cs" />
     <Compile Include="LogicaDeNegocio\Bitacora\RegistrarEvento\TiposDeEvento.cs" />
@@ -68,11 +70,10 @@
     <Compile Include="ModelosParaUI\CajaDto.cs" />
     <Compile Include="ModelosParaUI\ComercioDto.cs" />
     <Compile Include="ModelosParaUI\EventoBitacoraDto.cs" />
+    <Compile Include="ModelosParaUI\EventoRegistradoDto.cs" />
+    <Compile Include="ModelosParaUI\PaginaDeEventosDto.cs" />
     <Compile Include="ModelosParaUI\SinpeDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="LogicaDeNegocio\Bitacora\ListarEventos\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

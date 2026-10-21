@@ -1,0 +1,99 @@
+﻿@model BancoLosPatitos.Abstracciones.ModelosParaUI.PaginaDeEventosDto
+
+@{
+    ViewBag.Title = "Bitácora";
+}
+
+<h2>Bitácora de eventos</h2>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.Error
+    </div>
+}
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered align-middle">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Tabla</th>
+                <th>Tipo</th>
+                <th>Fecha</th>
+                <th>Descripción</th>
+                <th>StackTrace</th>
+                <th>Datos anteriores</th>
+                <th>Datos posteriores</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Eventos.Count == 0)
+            {
+                <tr>
+                    <td colspan="9" class="text-center">No hay eventos registrados.</td>
+                </tr>
+            }
+
+            @foreach (var item in Model.Eventos)
+            {
+                <tr>
+                    <td>@item.IdEvento</td>
+                    <td>@item.TablaDeEvento</td>
+                    <td>@item.TipoDeEvento</td>
+                    <td class="text-nowrap">@item.FechaDeEvento.ToString("dd/MM/yyyy hh:mm:ss tt")</td>
+                    <td>@item.DescripcionCorta</td>
+                    <td>@item.StackTraceCorto</td>
+                    <td>@item.DatosAnterioresCortos</td>
+                    <td>@item.DatosPosterioresCortos</td>
+                    <td class="text-nowrap">
+                        @Html.ActionLink(
+                            "Detalles",
+                            "DetallesEvento",
+                            "Bitacora",
+                            new { id = item.IdEvento },
+                            new { @class = "btn btn-info btn-sm" }
+                        )
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="d-flex justify-content-between align-items-center">
+    <span>Página @Model.PaginaActual de @Model.TotalDePaginas</span>
+
+    <div>
+        @if (Model.TieneAnterior)
+        {
+            @Html.ActionLink(
+                "Anterior",
+                "ListarEventos",
+                "Bitacora",
+                new { pagina = Model.PaginaActual - 1 },
+                new { @class = "btn btn-secondary btn-sm" }
+            )
+        }
+        else
+        {
+            <span class="btn btn-secondary btn-sm disabled">Anterior</span>
+        }
+
+        @if (Model.TieneSiguiente)
+        {
+            @Html.ActionLink(
+                "Siguiente",
+                "ListarEventos",
+                "Bitacora",
+                new { pagina = Model.PaginaActual + 1 },
+                new { @class = "btn btn-secondary btn-sm" }
+            )
+        }
+        else
+        {
+            <span class="btn btn-secondary btn-sm disabled">Siguiente</span>
+        }
+    </div>
+</div>

@@ -131,6 +131,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\BitacoraController.cs" />
     <Compile Include="Controllers\CajaController.cs" />
     <Compile Include="Controllers\ComercioController.cs" />
     <Compile Include="Controllers\ControladorBase.cs" />
@@ -189,6 +190,8 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Bitacora\DetallesEvento.cshtml" />
+    <Content Include="Views\Bitacora\ListarEventos.cshtml" />
     <Content Include="Views\Caja\EditarCaja.cshtml" />
     <Content Include="Views\Caja\ListarCajas.cshtml" />
     <Content Include="Views\Caja\RegistrarCaja.cshtml" />
@@ -202,7 +205,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Bitacora\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

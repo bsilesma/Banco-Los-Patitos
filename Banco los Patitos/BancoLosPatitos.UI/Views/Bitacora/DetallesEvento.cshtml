@@ -1,0 +1,49 @@
+﻿@model BancoLosPatitos.Abstracciones.ModelosParaUI.EventoRegistradoDto
+
+@{
+    ViewBag.Title = "Detalles del evento";
+}
+
+<h2>Detalles del evento</h2>
+
+<p><strong>Id del evento:</strong> @Model.IdEvento</p>
+<p><strong>Tabla:</strong> @Model.TablaDeEvento</p>
+<p><strong>Tipo:</strong> @Model.TipoDeEvento</p>
+
+<p>
+    <strong>Fecha:</strong>
+    @Model.FechaDeEvento.ToString("dd/MM/yyyy hh:mm:ss tt")
+</p>
+
+<p><strong>Descripción:</strong> @Model.DescripcionDeEvento</p>
+
+<p><strong>StackTrace:</strong></p>
+<pre class="border rounded p-2 bg-light" style="max-height: 300px; overflow: auto; white-space: pre-wrap;">@Model.StackTrace</pre>
+
+<p><strong>Datos anteriores:</strong></p>
+@if (string.IsNullOrEmpty(Model.DatosAnteriores))
+{
+    <p>Sin datos</p>
+}
+else
+{
+    <pre class="border rounded p-2 bg-light" style="max-height: 300px; overflow: auto; white-space: pre-wrap;">@Model.DatosAnteriores</pre>
+}
+
+<p><strong>Datos posteriores:</strong></p>
+@if (string.IsNullOrEmpty(Model.DatosPosteriores))
+{
+    <p>Sin datos</p>
+}
+else
+{
+    <pre class="border rounded p-2 bg-light" style="max-height: 300px; overflow: auto; white-space: pre-wrap;">@Model.DatosPosteriores</pre>
+}
+
+@Html.ActionLink(
+    "Volver a la bitácora",
+    "ListarEventos",
+    "Bitacora",
+    null,
+    new { @class = "btn btn-secondary" }
+)
