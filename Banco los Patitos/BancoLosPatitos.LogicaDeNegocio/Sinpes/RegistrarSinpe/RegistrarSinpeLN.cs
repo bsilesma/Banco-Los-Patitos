@@ -40,10 +40,10 @@ namespace BancoLosPatitos.LogicaDeNegocio.Sinpes.RegistrarSinpe
                         throw new ReglaDeNegocioException("La caja con el teléfono " + telefonoDestinatario + " está inactiva y no puede recibir pagos.");
                     }
 
-                    bool comercioActivo = contexto.Comercios
-                        .Any(x => x.IdComercio == caja.IdComercio && x.Estado);
+                    var comercio = contexto.Comercios
+                        .First(x => x.IdComercio == caja.IdComercio);
 
-                    if (!comercioActivo)
+                    if (!comercio.Estado)
                     {
                         throw new ReglaDeNegocioException("El comercio de la caja con el teléfono " + telefonoDestinatario + " está inactivo y no puede recibir pagos.");
                     }
@@ -53,7 +53,8 @@ namespace BancoLosPatitos.LogicaDeNegocio.Sinpes.RegistrarSinpe
                         TelefonoOrigen = sinpe.TelefonoOrigen.Trim(),
                         NombreOrigen = sinpe.NombreOrigen.Trim(),
                         TelefonoDestinatario = telefonoDestinatario,
-                        NombreDestinatario = sinpe.NombreDestinatario.Trim(),
+                        // El destinatario es el comercio dueño de la caja; el usuario no lo escribe.
+                        NombreDestinatario = comercio.Nombre.Trim(),
                         Monto = sinpe.Monto.Value,
                         FechaDeRegistro = DateTime.Now,
                         Descripcion = string.IsNullOrWhiteSpace(sinpe.Descripcion) ? null : sinpe.Descripcion.Trim(),

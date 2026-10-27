@@ -18,7 +18,6 @@ namespace BancoLosPatitos.LogicaDeNegocio.Sinpes
             ValidacionesComunes.ValidarTelefono(sinpe.TelefonoOrigen, "Teléfono origen");
             ValidacionesComunes.ValidarTexto(sinpe.NombreOrigen, "Nombre origen", 200);
             ValidacionesComunes.ValidarTelefono(sinpe.TelefonoDestinatario, "Teléfono destinatario");
-            ValidacionesComunes.ValidarTexto(sinpe.NombreDestinatario, "Nombre destinatario", 200);
             ValidarMonto(sinpe.Monto);
             ValidarDescripcion(sinpe.Descripcion);
         }

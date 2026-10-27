@@ -36,11 +36,6 @@
     </div>
 
     <div class="mb-3">
-        @Html.LabelFor(model => model.NombreDestinatario, "Nombre destinatario", new { @class = "form-label" })
-        @Html.TextBoxFor(model => model.NombreDestinatario, new { @class = "form-control", maxlength = "200", data_validar = "texto" })
-    </div>
-
-    <div class="mb-3">
         @Html.LabelFor(model => model.Monto, "Monto", new { @class = "form-label" })
         @Html.TextBoxFor(model => model.Monto, new { @class = "form-control", placeholder = "Ej.: 4500,50", data_validar = "monto" })
     </div>
