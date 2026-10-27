@@ -45,12 +45,13 @@ namespace BancoLosPatitos.LogicaDeNegocio.Cajas.RegistrarCaja
                         throw new ReglaDeNegocioException("El comercio ya tiene una caja con el nombre " + nombre + ".");
                     }
 
+                    // El teléfono identifica a la caja que recibe los SINPE, aunque esté inactiva.
                     bool telefonoEnUso = contexto.Cajas
-                        .Any(x => x.TelefonoSINPE == telefono && x.Estado);
+                        .Any(x => x.TelefonoSINPE == telefono);
 
                     if (telefonoEnUso)
                     {
-                        throw new ReglaDeNegocioException("Ya existe una caja activa con el teléfono SINPE " + telefono + ".");
+                        throw new ReglaDeNegocioException("Ya existe una caja con el teléfono SINPE " + telefono + ".");
                     }
 
                     var nueva = new Caja

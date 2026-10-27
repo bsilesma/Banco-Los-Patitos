@@ -43,18 +43,25 @@ namespace BancoLosPatitos.LogicaDeNegocio.Cajas.EditarCaja
                         throw new ReglaDeNegocioException("El comercio ya tiene una caja con el nombre " + nombre + ".");
                     }
 
-                    // Una caja inactiva no ocupa su teléfono SINPE.
-                    if (caja.Estado)
+                    // Los SINPE se buscan por teléfono: si cambiara, la caja perdería los pagos que ya recibió.
+                    if (telefono != existente.TelefonoSINPE)
                     {
-                        bool telefonoEnUso = contexto.Cajas
-                            .Any(x => x.TelefonoSINPE == telefono
-                                && x.Estado
-                                && x.IdCaja != existente.IdCaja);
+                        bool tieneSinpe = contexto.Sinpes
+                            .Any(x => x.TelefonoDestinatario == existente.TelefonoSINPE);
 
-                        if (telefonoEnUso)
+                        if (tieneSinpe)
                         {
-                            throw new ReglaDeNegocioException("Ya existe una caja activa con el teléfono SINPE " + telefono + ".");
+                            throw new ReglaDeNegocioException("No se puede cambiar el teléfono SINPE de la caja " + existente.Nombre + " porque ya recibió pagos.");
                         }
+                    }
+
+                    // El teléfono identifica a la caja que recibe los SINPE, aunque esté inactiva.
+                    bool telefonoEnUso = contexto.Cajas
+                        .Any(x => x.TelefonoSINPE == telefono && x.IdCaja != existente.IdCaja);
+
+                    if (telefonoEnUso)
+                    {
+                        throw new ReglaDeNegocioException("Ya existe una caja con el teléfono SINPE " + telefono + ".");
                     }
 
                     Caja anterior = Copiar(existente);
