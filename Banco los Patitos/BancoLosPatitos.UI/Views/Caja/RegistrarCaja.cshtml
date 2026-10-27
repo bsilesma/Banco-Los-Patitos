@@ -26,17 +26,17 @@
 
     <div class="mb-3">
         @Html.LabelFor(model => model.Nombre, "Nombre", new { @class = "form-label" })
-        @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", maxlength = "100" })
+        @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", maxlength = "100", data_validar = "texto" })
     </div>
 
     <div class="mb-3">
         @Html.LabelFor(model => model.Descripcion, "Descripción", new { @class = "form-label" })
-        @Html.TextAreaFor(model => model.Descripcion, new { @class = "form-control", maxlength = "150", rows = "2" })
+        @Html.TextAreaFor(model => model.Descripcion, new { @class = "form-control", maxlength = "150", rows = "2", data_validar = "texto" })
     </div>
 
     <div class="mb-3">
         @Html.LabelFor(model => model.TelefonoSINPE, "Teléfono SINPE", new { @class = "form-label" })
-        @Html.TextBoxFor(model => model.TelefonoSINPE, new { @class = "form-control", maxlength = "8" })
+        @Html.TextBoxFor(model => model.TelefonoSINPE, new { @class = "form-control", maxlength = "8", data_validar = "telefono" })
     </div>
 
     <button type="submit" class="btn btn-primary">Registrar</button>

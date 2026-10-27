@@ -29,7 +29,7 @@
 
     <div class="mb-3">
         @Html.LabelFor(model => model.Nombre, "Nombre", new { @class = "form-label" })
-        @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", maxlength = "200" })
+        @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", maxlength = "200", data_validar = "texto" })
     </div>
 
     <div class="mb-3">
@@ -44,23 +44,23 @@
                 new SelectListItem { Text = "Otros", Value = "4" }
             },
             "-- Seleccione un tipo --",
-            new { @class = "form-select" }
+            new { @class = "form-select", data_validar = "seleccion" }
         )
     </div>
 
     <div class="mb-3">
         @Html.LabelFor(model => model.Telefono, "Teléfono", new { @class = "form-label" })
-        @Html.TextBoxFor(model => model.Telefono, new { @class = "form-control", maxlength = "8" })
+        @Html.TextBoxFor(model => model.Telefono, new { @class = "form-control", maxlength = "8", data_validar = "telefono" })
     </div>
 
     <div class="mb-3">
         @Html.LabelFor(model => model.CorreoElectronico, "Correo electrónico", new { @class = "form-label" })
-        @Html.TextBoxFor(model => model.CorreoElectronico, new { @class = "form-control", maxlength = "200" })
+        @Html.TextBoxFor(model => model.CorreoElectronico, new { @class = "form-control", maxlength = "200", data_validar = "correo" })
     </div>
 
     <div class="mb-3">
         @Html.LabelFor(model => model.Direccion, "Dirección", new { @class = "form-label" })
-        @Html.TextAreaFor(model => model.Direccion, new { @class = "form-control", maxlength = "500", rows = "3" })
+        @Html.TextAreaFor(model => model.Direccion, new { @class = "form-control", maxlength = "500", rows = "3", data_validar = "texto" })
     </div>
 
     <div class="form-check mb-3">

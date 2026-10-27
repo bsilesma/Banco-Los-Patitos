@@ -1,4 +1,18 @@
-﻿<!DOCTYPE html>
+﻿@{
+    // Resalta en el menú la sección donde está el usuario.
+    string controladorActual = ViewContext.RouteData.Values["controller"].ToString();
+    string accionActual = ViewContext.RouteData.Values["action"].ToString();
+    Func<string, bool> estaEn = controlador =>
+        string.Equals(controlador, controladorActual, StringComparison.OrdinalIgnoreCase);
+    Func<string, string, string> claseDelLink = (controlador, accion) =>
+        estaEn(controlador) && (accion == null || string.Equals(accion, accionActual, StringComparison.OrdinalIgnoreCase))
+            ? "nav-link activo"
+            : "nav-link";
+    // Los SINPE de una caja se abren desde Cajas, por eso cuentan como parte de Comercios.
+    bool estaEnSinpeDeCaja = estaEn("Sinpe") && string.Equals(accionActual, "ListarSinpePorCaja", StringComparison.OrdinalIgnoreCase);
+    bool estaEnComercios = estaEn("Comercio") || estaEn("Caja") || estaEnSinpeDeCaja;
+}
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -9,21 +23,29 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark barra-banco">
         <div class="container">
-            @Html.ActionLink("Banco Los Patitos", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <a class="navbar-brand" href="@Url.Action("Index", "Home", new { area = "" })">
+                <svg class="pato" width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
+                    <ellipse class="cuerpo" cx="15" cy="21" rx="11" ry="7"></ellipse>
+                    <circle class="cuerpo" cx="21" cy="11" r="6"></circle>
+                    <path class="pico" d="M26 11.5 L31 12.5 L26 14.2 Z"></path>
+                    <circle class="ojo" cx="22.5" cy="9.6" r="1.1"></circle>
+                </svg>
+                Banco Los Patitos
+            </a>
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Alternar navegación" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Acerca de", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Contacto", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Comercios", "ListarComercios", "Comercio", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("SINPE", "RegistrarSinpe", "Sinpe", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Bitácora", "ListarEventos", "Bitacora", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @class = claseDelLink("Home", "Index") })</li>
+                    <li>@Html.ActionLink("Acerca de", "About", "Home", new { area = "" }, new { @class = claseDelLink("Home", "About") })</li>
+                    <li>@Html.ActionLink("Contacto", "Contact", "Home", new { area = "" }, new { @class = claseDelLink("Home", "Contact") })</li>
+                    <li>@Html.ActionLink("Comercios", "ListarComercios", "Comercio", new { area = "" }, new { @class = estaEnComercios ? "nav-link activo" : "nav-link" })</li>
+                    <li>@Html.ActionLink("SINPE", "RegistrarSinpe", "Sinpe", new { area = "" }, new { @class = claseDelLink("Sinpe", "RegistrarSinpe") })</li>
+                    <li>@Html.ActionLink("Bitácora", "ListarEventos", "Bitacora", new { area = "" }, new { @class = claseDelLink("Bitacora", null) })</li>
                 </ul>
             </div>
         </div>
@@ -38,6 +60,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/validacion")
     @RenderSection("scripts", required: false)
 </body>
 </html>
