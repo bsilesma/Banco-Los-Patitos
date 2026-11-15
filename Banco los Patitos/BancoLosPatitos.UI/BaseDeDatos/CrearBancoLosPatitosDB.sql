@@ -112,3 +112,33 @@ CREATE TABLE dbo.BITACORA_EVENTOS
         CHECK (TipoDeEvento IN ('Registrar', 'Editar', 'Eliminar', 'Error'))
 );
 GO
+
+-- 5. Configuraciones
+CREATE TABLE dbo.Configuraciones
+(
+    IdConfiguracion     INT       IDENTITY(1,1) NOT NULL,
+    IdComercio          INT       NOT NULL,
+    TipoConfiguracion   INT       NOT NULL,  -- 1 = Plataforma, 2 = Externa, 3 = Ambas
+    Comision            INT       NOT NULL,  -- Porcentaje: 20 equivale a 20 %
+    FechaDeRegistro     DATETIME  NOT NULL,
+    FechaDeModificacion DATETIME  NULL,
+    Estado              BIT       NOT NULL,  -- 1 = Activo, 0 = Inactivo
+
+    CONSTRAINT PK_Configuraciones
+        PRIMARY KEY CLUSTERED (IdConfiguracion ASC),
+
+    CONSTRAINT FK_Configuraciones_Comercios
+        FOREIGN KEY (IdComercio)
+        REFERENCES dbo.Comercios (IdComercio),
+
+    -- Regla: un comercio solo puede tener una configuración.
+    CONSTRAINT UQ_Configuraciones_IdComercio
+        UNIQUE (IdComercio),
+
+    CONSTRAINT CK_Configuraciones_TipoConfiguracion
+        CHECK (TipoConfiguracion BETWEEN 1 AND 3),
+
+    CONSTRAINT CK_Configuraciones_Comision
+        CHECK (Comision BETWEEN 1 AND 100)
+);
+GO

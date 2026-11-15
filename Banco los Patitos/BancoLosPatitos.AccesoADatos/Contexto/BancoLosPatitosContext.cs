@@ -16,6 +16,8 @@ namespace BancoLosPatitos.AccesoADatos.Contexto
 
         public DbSet<Sinpe> Sinpes { get; set; }
 
+        public DbSet<Configuracion> Configuraciones { get; set; }
+
         public DbSet<BitacoraEvento> BitacoraEventos { get; set; }
     }
 }
