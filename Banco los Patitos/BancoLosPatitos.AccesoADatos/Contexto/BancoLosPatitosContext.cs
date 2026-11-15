@@ -18,6 +18,10 @@ namespace BancoLosPatitos.AccesoADatos.Contexto
 
         public DbSet<Configuracion> Configuraciones { get; set; }
 
+        public DbSet<Usuario> Usuarios { get; set; }
+
+        public DbSet<ReporteMensual> ReportesMensuales { get; set; }
+
         public DbSet<BitacoraEvento> BitacoraEventos { get; set; }
     }
 }

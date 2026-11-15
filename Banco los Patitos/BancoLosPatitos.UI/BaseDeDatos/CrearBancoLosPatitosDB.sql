@@ -142,3 +142,51 @@ CREATE TABLE dbo.Configuraciones
         CHECK (Comision BETWEEN 1 AND 100)
 );
 GO
+
+-- 6. Usuarios
+CREATE TABLE dbo.Usuarios
+(
+    IdUsuario           INT              IDENTITY(1,1) NOT NULL,
+    IdComercio          INT              NOT NULL,
+    IdNetUser           UNIQUEIDENTIFIER NULL,  -- Se llena cuando se integre .NET Identity
+    Nombres             VARCHAR(100)     NOT NULL,
+    PrimerApellido      VARCHAR(100)     NOT NULL,
+    SegundoApellido     VARCHAR(100)     NOT NULL,
+    Identificacion      VARCHAR(10)      NOT NULL,
+    CorreoElectronico   VARCHAR(200)     NOT NULL,
+    FechaDeRegistro     DATETIME         NOT NULL,
+    FechaDeModificacion DATETIME         NULL,
+    Estado              BIT              NOT NULL,  -- 1 = Activo, 0 = Inactivo
+
+    CONSTRAINT PK_Usuarios
+        PRIMARY KEY CLUSTERED (IdUsuario ASC),
+
+    CONSTRAINT FK_Usuarios_Comercios
+        FOREIGN KEY (IdComercio)
+        REFERENCES dbo.Comercios (IdComercio),
+
+    -- Regla: no pueden existir dos usuarios con la misma identificación.
+    CONSTRAINT UQ_Usuarios_Identificacion
+        UNIQUE (Identificacion)
+);
+GO
+
+-- 7. ReportesMensuales
+CREATE TABLE dbo.ReportesMensuales
+(
+    IdReporte           INT            IDENTITY(1,1) NOT NULL,
+    IdComercio          INT            NOT NULL,
+    CantidadDeCajas     INT            NOT NULL,
+    MontoTotalRecaudado DECIMAL(18,2)  NOT NULL,
+    CantidadDeSINPES    INT            NOT NULL,
+    MontoTotalComision  DECIMAL(18,2)  NOT NULL,
+    FechaDelReporte     DATETIME       NOT NULL,
+
+    CONSTRAINT PK_ReportesMensuales
+        PRIMARY KEY CLUSTERED (IdReporte ASC),
+
+    CONSTRAINT FK_ReportesMensuales_Comercios
+        FOREIGN KEY (IdComercio)
+        REFERENCES dbo.Comercios (IdComercio)
+);
+GO

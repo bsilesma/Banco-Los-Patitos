@@ -67,6 +67,12 @@
     <Compile Include="Comercios\ObtenerComercio\ObtenerComercioLN.cs" />
     <Compile Include="Comercios\RegistrarComercio\RegistrarComercioLN.cs" />
     <Compile Include="Comercios\ValidadorDeComercio.cs" />
+    <Compile Include="Configuraciones\EditarConfiguracion\EditarConfiguracionLN.cs" />
+    <Compile Include="Configuraciones\ListarComerciosSinConfiguracion\ListarComerciosSinConfiguracionLN.cs" />
+    <Compile Include="Configuraciones\ListarConfiguraciones\ListarConfiguracionesLN.cs" />
+    <Compile Include="Configuraciones\ObtenerConfiguracion\ObtenerConfiguracionLN.cs" />
+    <Compile Include="Configuraciones\RegistrarConfiguracion\RegistrarConfiguracionLN.cs" />
+    <Compile Include="Configuraciones\ValidadorDeConfiguracion.cs" />
     <Compile Include="Sinpes\ListarSinpePorCaja\ListarSinpePorCajaLN.cs" />
     <Compile Include="Sinpes\RegistrarSinpe\RegistrarSinpeLN.cs" />
     <Compile Include="Sinpes\ValidadorDeSinpe.cs" />

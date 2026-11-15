@@ -1,4 +1,5 @@
 ﻿using BancoLosPatitos.Abstracciones.Excepciones;
+using System.ComponentModel.DataAnnotations;
 
 namespace BancoLosPatitos.LogicaDeNegocio
 {
@@ -19,6 +20,14 @@ namespace BancoLosPatitos.LogicaDeNegocio
             }
         }
 
+        public static void ValidarRango(int valor, int minimo, int maximo, string mensaje)
+        {
+            if (valor < minimo || valor > maximo)
+            {
+                throw new ReglaDeNegocioException(mensaje);
+            }
+        }
+
         public static void ValidarTelefono(string telefono, string campo)
         {
             string valor = telefono == null ? string.Empty : telefono.Trim();
@@ -26,6 +35,24 @@ namespace BancoLosPatitos.LogicaDeNegocio
             if (valor.Length != LargoDelTelefono || !SonSoloDigitos(valor))
             {
                 throw new ReglaDeNegocioException("El campo " + campo + " debe contener exactamente " + LargoDelTelefono + " dígitos.");
+            }
+        }
+
+        public static void ValidarCorreo(string correo)
+        {
+            if (!new EmailAddressAttribute().IsValid(correo.Trim()))
+            {
+                throw new ReglaDeNegocioException("El correo electrónico no tiene un formato válido.");
+            }
+        }
+
+        public static void ValidarSoloDigitos(string valor, string campo, int largoMinimo, int largoMaximo)
+        {
+            string texto = valor == null ? string.Empty : valor.Trim();
+
+            if (texto.Length < largoMinimo || texto.Length > largoMaximo || !SonSoloDigitos(texto))
+            {
+                throw new ReglaDeNegocioException("El campo " + campo + " debe contener solo dígitos, entre " + largoMinimo + " y " + largoMaximo + ".");
             }
         }
 

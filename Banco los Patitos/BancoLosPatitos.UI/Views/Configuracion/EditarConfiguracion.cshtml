@@ -1,0 +1,63 @@
+﻿@model BancoLosPatitos.Abstracciones.ModelosParaUI.ConfiguracionDto
+
+@{
+    ViewBag.Title = "Editar configuración";
+}
+
+<h2>Editar configuración</h2>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.Error
+    </div>
+}
+
+@using (Html.BeginForm(
+    "EditarConfiguracion",
+    "Configuracion",
+    FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(model => model.IdConfiguracion)
+    @Html.HiddenFor(model => model.IdComercio)
+    @Html.HiddenFor(model => model.NombreDelComercio)
+
+    <p><strong>Comercio:</strong> @Model.NombreDelComercio</p>
+
+    <div class="mb-3">
+        @Html.LabelFor(model => model.TipoConfiguracion, "Tipo de configuración", new { @class = "form-label" })
+        @Html.DropDownListFor(
+            model => model.TipoConfiguracion,
+            new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Plataforma", Value = "1" },
+                new SelectListItem { Text = "Externa", Value = "2" },
+                new SelectListItem { Text = "Ambas", Value = "3" }
+            },
+            "-- Seleccione un tipo --",
+            new { @class = "form-select", data_validar = "seleccion" }
+        )
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(model => model.Comision, "Comisión (%)", new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.Comision, new { @class = "form-control", maxlength = "3", data_validar = "porcentaje" })
+    </div>
+
+    <div class="form-check mb-3">
+        @Html.CheckBoxFor(model => model.Estado, new { @class = "form-check-input" })
+        @Html.LabelFor(model => model.Estado, "Activo", new { @class = "form-check-label" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+
+    @Html.ActionLink(
+        "Volver",
+        "ListarConfiguraciones",
+        "Configuracion",
+        null,
+        new { @class = "btn btn-secondary" }
+    )
+}

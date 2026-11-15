@@ -5,6 +5,10 @@
 
     var LARGO_DEL_TELEFONO = 8;
     var MAXIMO_DE_DIGITOS_ENTEROS = 16;
+    var PORCENTAJE_MINIMO = 1;
+    var PORCENTAJE_MAXIMO = 100;
+    var LARGO_MINIMO_DE_IDENTIFICACION = 9;
+    var LARGO_MAXIMO_DE_IDENTIFICACION = 10;
 
     // Sin puntos al inicio, al final ni seguidos, y el dominio debe terminar en una extensión como .com o .cr.
     var FORMATO_DE_CORREO = /^[A-Za-z0-9!#$%&'*+\/=?^_`{|}~-]+(\.[A-Za-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@([A-Za-z0-9]([A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z]{2,}$/;
@@ -54,6 +58,28 @@
             }
 
             return parseFloat(valor.replace(',', '.')) > 0 ? null : 'El monto debe ser mayor a 0.';
+        },
+
+        porcentaje: function (valor, campo) {
+            if (!/^\d+$/.test(valor)) {
+                return 'El campo ' + campo + ' es obligatorio y debe ser un número entero.';
+            }
+
+            var numero = parseInt(valor, 10);
+
+            if (numero < PORCENTAJE_MINIMO || numero > PORCENTAJE_MAXIMO) {
+                return 'El campo ' + campo + ' debe estar entre ' + PORCENTAJE_MINIMO + ' y ' + PORCENTAJE_MAXIMO + '.';
+            }
+
+            return null;
+        },
+
+        identificacion: function (valor, campo) {
+            if (valor.length < LARGO_MINIMO_DE_IDENTIFICACION || valor.length > LARGO_MAXIMO_DE_IDENTIFICACION) {
+                return 'El campo ' + campo + ' debe contener entre ' + LARGO_MINIMO_DE_IDENTIFICACION + ' y ' + LARGO_MAXIMO_DE_IDENTIFICACION + ' dígitos (lleva ' + valor.length + ').';
+            }
+
+            return null;
         }
     };
 
@@ -65,6 +91,14 @@
 
         monto: function (valor) {
             return valor.replace('.', ',').replace(/[^\d,]/g, '');
+        },
+
+        porcentaje: function (valor) {
+            return valor.replace(/\D/g, '');
+        },
+
+        identificacion: function (valor) {
+            return valor.replace(/\D/g, '');
         }
     };
 
@@ -92,7 +126,7 @@
         if (error !== null && mostrarError) {
             ayuda.textContent = error;
             ayuda.className = 'ayuda-campo error';
-        } else if (maximo && tipo !== 'telefono') {
+        } else if (maximo && tipo !== 'telefono' && tipo !== 'porcentaje') {
             ayuda.textContent = control.value.length + ' de ' + maximo + ' caracteres';
             ayuda.className = 'ayuda-campo';
         } else {

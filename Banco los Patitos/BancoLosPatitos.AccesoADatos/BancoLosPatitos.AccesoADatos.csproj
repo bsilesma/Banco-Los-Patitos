@@ -56,7 +56,9 @@
     <Compile Include="Entidades\Caja.cs" />
     <Compile Include="Entidades\Configuracion.cs" />
     <Compile Include="Entidades\Comercio.cs" />
+    <Compile Include="Entidades\ReporteMensual.cs" />
     <Compile Include="Entidades\Sinpe.cs" />
+    <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Migrations\202610181834089_Inicial.cs" />
     <Compile Include="Migrations\202610181834089_Inicial.Designer.cs">
       <DependentUpon>202610181834089_Inicial.cs</DependentUpon>
@@ -68,6 +70,10 @@
     <Compile Include="Migrations\202610210115292_AgregarSinpe.cs" />
     <Compile Include="Migrations\202610210115292_AgregarSinpe.Designer.cs">
       <DependentUpon>202610210115292_AgregarSinpe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202611150501359_AgregarConfiguracionUsuariosYReportes.cs" />
+    <Compile Include="Migrations\202611150501359_AgregarConfiguracionUsuariosYReportes.Designer.cs">
+      <DependentUpon>202611150501359_AgregarConfiguracionUsuariosYReportes.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202610210115292_AgregarSinpe.resx">
       <DependentUpon>202610210115292_AgregarSinpe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202611150501359_AgregarConfiguracionUsuariosYReportes.resx">
+      <DependentUpon>202611150501359_AgregarConfiguracionUsuariosYReportes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
