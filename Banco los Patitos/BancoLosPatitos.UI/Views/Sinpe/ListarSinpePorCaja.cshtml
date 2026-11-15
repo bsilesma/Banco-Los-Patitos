@@ -9,6 +9,13 @@
 <p><strong>Caja:</strong> @ViewBag.NombreDeLaCaja</p>
 <p><strong>Teléfono SINPE:</strong> @ViewBag.TelefonoSINPE</p>
 
+@if (ViewBag.Mensaje != null)
+{
+    <div class="alert alert-success">
+        @ViewBag.Mensaje
+    </div>
+}
+
 @if (ViewBag.Error != null)
 {
     <div class="alert alert-danger">
@@ -38,13 +45,14 @@
                 <th>Descripción</th>
                 <th>Fecha</th>
                 <th>Estado</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
             @if (Model.Count == 0)
             {
                 <tr>
-                    <td colspan="8" class="text-center">Esta caja no ha recibido SINPE.</td>
+                    <td colspan="9" class="text-center">Esta caja no ha recibido SINPE.</td>
                 </tr>
             }
 
@@ -66,6 +74,21 @@
                         else
                         {
                             <span class="badge bg-secondary">@item.EstadoTexto</span>
+                        }
+                    </td>
+                    <td>
+                        @if (!item.Estado)
+                        {
+                            using (Html.BeginForm(
+                                "SincronizarSinpe",
+                                "Sinpe",
+                                new { idSinpe = item.IdSinpe, idCaja = ViewBag.IdCaja },
+                                FormMethod.Post,
+                                new { @class = "d-inline p-0 border-0 bg-transparent" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-success btn-sm">Sincronizar</button>
+                            }
                         }
                     </td>
                 </tr>

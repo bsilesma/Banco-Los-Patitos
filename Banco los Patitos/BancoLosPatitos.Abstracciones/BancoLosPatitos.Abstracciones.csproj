@@ -74,6 +74,7 @@
     <Compile Include="LogicaDeNegocio\Reportes\ListarReportes\IListarReportesLN.cs" />
     <Compile Include="LogicaDeNegocio\Sinpes\ListarSinpePorCaja\IListarSinpePorCajaLN.cs" />
     <Compile Include="LogicaDeNegocio\Sinpes\RegistrarSinpe\IRegistrarSinpeLN.cs" />
+    <Compile Include="LogicaDeNegocio\Sinpes\SincronizarSinpe\ISincronizarSinpeLN.cs" />
     <Compile Include="LogicaDeNegocio\Usuarios\EditarUsuario\IEditarUsuarioLN.cs" />
     <Compile Include="LogicaDeNegocio\Usuarios\ListarUsuarios\IListarUsuariosLN.cs" />
     <Compile Include="LogicaDeNegocio\Usuarios\ObtenerUsuario\IObtenerUsuarioLN.cs" />
