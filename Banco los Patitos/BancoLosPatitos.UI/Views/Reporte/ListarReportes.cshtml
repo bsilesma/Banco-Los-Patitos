@@ -1,0 +1,68 @@
+﻿@model List<BancoLosPatitos.Abstracciones.ModelosParaUI.ReporteMensualDto>
+
+@{
+    ViewBag.Title = "Reportes mensuales";
+}
+
+<h2>Reportes mensuales</h2>
+
+@if (ViewBag.Mensaje != null)
+{
+    <div class="alert alert-success">
+        @ViewBag.Mensaje
+    </div>
+}
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.Error
+    </div>
+}
+
+<div class="mb-3">
+    @using (Html.BeginForm(
+        "GenerarReportes",
+        "Reporte",
+        FormMethod.Post,
+        new { @class = "d-inline" }))
+    {
+        @Html.AntiForgeryToken()
+        <button type="submit" class="btn btn-primary btn-sm">Generar reportes</button>
+    }
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered align-middle">
+        <thead>
+            <tr>
+                <th>Nombre del comercio</th>
+                <th>Cantidad de cajas</th>
+                <th>Monto recaudado</th>
+                <th>Cantidad de SINPES</th>
+                <th>Monto total de comisión</th>
+                <th>Fecha del reporte</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Count == 0)
+            {
+                <tr>
+                    <td colspan="6" class="text-center">No hay reportes generados.</td>
+                </tr>
+            }
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.NombreDelComercio</td>
+                    <td class="text-end">@item.CantidadDeCajas</td>
+                    <td class="text-end">@item.MontoTotalRecaudadoTexto</td>
+                    <td class="text-end">@item.CantidadDeSINPES</td>
+                    <td class="text-end">@item.MontoTotalComisionTexto</td>
+                    <td>@item.FechaDelReporte.ToString("dd/MM/yyyy hh:mm tt")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

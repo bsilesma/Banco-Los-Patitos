@@ -96,6 +96,14 @@
                             new { idComercio = item.IdComercio },
                             new { @class = "btn btn-secondary btn-sm" }
                         )
+
+                        @Html.ActionLink(
+                            "Ver usuarios",
+                            "ListarUsuarios",
+                            "Usuario",
+                            new { idComercio = item.IdComercio },
+                            new { @class = "btn btn-dark btn-sm" }
+                        )
                     </td>
                 </tr>
             }

@@ -136,7 +136,9 @@
     <Compile Include="Controllers\ComercioController.cs" />
     <Compile Include="Controllers\ConfiguracionController.cs" />
     <Compile Include="Controllers\ControladorBase.cs" />
+    <Compile Include="Controllers\ReporteController.cs" />
     <Compile Include="Controllers\SinpeController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -204,6 +206,10 @@
     <Content Include="Views\Configuracion\EditarConfiguracion.cshtml" />
     <Content Include="Views\Configuracion\ListarConfiguraciones.cshtml" />
     <Content Include="Views\Configuracion\RegistrarConfiguracion.cshtml" />
+    <Content Include="Views\Reporte\ListarReportes.cshtml" />
+    <Content Include="Views\Usuario\EditarUsuario.cshtml" />
+    <Content Include="Views\Usuario\ListarUsuarios.cshtml" />
+    <Content Include="Views\Usuario\RegistrarUsuario.cshtml" />
     <Content Include="Views\Sinpe\ListarSinpePorCaja.cshtml" />
     <Content Include="Views\Sinpe\RegistrarSinpe.cshtml" />
   </ItemGroup>

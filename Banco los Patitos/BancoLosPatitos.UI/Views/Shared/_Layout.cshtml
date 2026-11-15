@@ -10,7 +10,7 @@
             : "nav-link";
     // Los SINPE de una caja se abren desde Cajas, por eso cuentan como parte de Comercios.
     bool estaEnSinpeDeCaja = estaEn("Sinpe") && string.Equals(accionActual, "ListarSinpePorCaja", StringComparison.OrdinalIgnoreCase);
-    bool estaEnComercios = estaEn("Comercio") || estaEn("Caja") || estaEnSinpeDeCaja;
+    bool estaEnComercios = estaEn("Comercio") || estaEn("Caja") || estaEn("Configuracion") || estaEn("Usuario") || estaEnSinpeDeCaja;
 }
 <!DOCTYPE html>
 <html>
@@ -45,6 +45,7 @@
                     <li>@Html.ActionLink("Contacto", "Contact", "Home", new { area = "" }, new { @class = claseDelLink("Home", "Contact") })</li>
                     <li>@Html.ActionLink("Comercios", "ListarComercios", "Comercio", new { area = "" }, new { @class = estaEnComercios ? "nav-link activo" : "nav-link" })</li>
                     <li>@Html.ActionLink("SINPE", "RegistrarSinpe", "Sinpe", new { area = "" }, new { @class = claseDelLink("Sinpe", "RegistrarSinpe") })</li>
+                    <li>@Html.ActionLink("Reportes", "ListarReportes", "Reporte", new { area = "" }, new { @class = claseDelLink("Reporte", null) })</li>
                     <li>@Html.ActionLink("Bitácora", "ListarEventos", "Bitacora", new { area = "" }, new { @class = claseDelLink("Bitacora", null) })</li>
                 </ul>
             </div>

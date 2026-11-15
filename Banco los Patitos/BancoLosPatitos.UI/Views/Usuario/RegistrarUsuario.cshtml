@@ -1,0 +1,61 @@
+﻿@model BancoLosPatitos.Abstracciones.ModelosParaUI.UsuarioDto
+
+@{
+    ViewBag.Title = "Registrar usuario";
+}
+
+<h2>Registrar usuario</h2>
+
+<p><strong>Comercio:</strong> @ViewBag.NombreDelComercio</p>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.Error
+    </div>
+}
+
+@using (Html.BeginForm(
+    "RegistrarUsuario",
+    "Usuario",
+    FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(model => model.IdComercio)
+
+    <div class="mb-3">
+        @Html.LabelFor(model => model.Nombres, "Nombres", new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.Nombres, new { @class = "form-control", maxlength = "100", data_validar = "texto" })
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(model => model.PrimerApellido, "Primer apellido", new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.PrimerApellido, new { @class = "form-control", maxlength = "100", data_validar = "texto" })
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(model => model.SegundoApellido, "Segundo apellido", new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.SegundoApellido, new { @class = "form-control", maxlength = "100", data_validar = "texto" })
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(model => model.Identificacion, "Identificación", new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.Identificacion, new { @class = "form-control", maxlength = "10", data_validar = "identificacion" })
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(model => model.CorreoElectronico, "Correo electrónico", new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.CorreoElectronico, new { @class = "form-control", maxlength = "200", data_validar = "correo" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Registrar</button>
+
+    @Html.ActionLink(
+        "Volver",
+        "ListarUsuarios",
+        "Usuario",
+        new { idComercio = Model.IdComercio },
+        new { @class = "btn btn-secondary" }
+    )
+}

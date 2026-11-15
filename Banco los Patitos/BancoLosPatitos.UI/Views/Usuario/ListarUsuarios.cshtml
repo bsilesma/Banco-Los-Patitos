@@ -1,0 +1,101 @@
+﻿@model List<BancoLosPatitos.Abstracciones.ModelosParaUI.UsuarioDto>
+
+@{
+    ViewBag.Title = "Usuarios";
+}
+
+<h2>Usuarios</h2>
+
+<p><strong>Comercio:</strong> @ViewBag.NombreDelComercio</p>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.Error
+    </div>
+}
+
+<div class="mb-3">
+    @Html.ActionLink(
+        "Registrar usuario",
+        "RegistrarUsuario",
+        "Usuario",
+        new { idComercio = ViewBag.IdComercio },
+        new { @class = "btn btn-primary btn-sm" }
+    )
+
+    @Html.ActionLink(
+        "Volver a comercios",
+        "ListarComercios",
+        "Comercio",
+        null,
+        new { @class = "btn btn-secondary btn-sm" }
+    )
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered align-middle">
+        <thead>
+            <tr>
+                <th>Nombres</th>
+                <th>Primer apellido</th>
+                <th>Segundo apellido</th>
+                <th>Identificación</th>
+                <th>Correo electrónico</th>
+                <th>Fecha de registro</th>
+                <th>Fecha de modificación</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Count == 0)
+            {
+                <tr>
+                    <td colspan="9" class="text-center">No hay usuarios registrados para este comercio.</td>
+                </tr>
+            }
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Nombres</td>
+                    <td>@item.PrimerApellido</td>
+                    <td>@item.SegundoApellido</td>
+                    <td>@item.Identificacion</td>
+                    <td>@item.CorreoElectronico</td>
+                    <td>@item.FechaDeRegistro.ToString("dd/MM/yyyy hh:mm tt")</td>
+                    <td>
+                        @if (item.FechaDeModificacion.HasValue)
+                        {
+                            @item.FechaDeModificacion.Value.ToString("dd/MM/yyyy hh:mm tt")
+                        }
+                        else
+                        {
+                            <span class="text-muted">Sin modificar</span>
+                        }
+                    </td>
+                    <td>
+                        @if (item.Estado)
+                        {
+                            <span class="badge bg-success">@item.EstadoTexto</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-secondary">@item.EstadoTexto</span>
+                        }
+                    </td>
+                    <td class="text-nowrap">
+                        @Html.ActionLink(
+                            "Editar",
+                            "EditarUsuario",
+                            "Usuario",
+                            new { id = item.IdUsuario },
+                            new { @class = "btn btn-warning btn-sm" }
+                        )
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

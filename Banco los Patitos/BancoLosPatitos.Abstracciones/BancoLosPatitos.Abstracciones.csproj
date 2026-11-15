@@ -70,15 +70,23 @@
     <Compile Include="LogicaDeNegocio\Configuraciones\ListarConfiguraciones\IListarConfiguracionesLN.cs" />
     <Compile Include="LogicaDeNegocio\Configuraciones\ObtenerConfiguracion\IObtenerConfiguracionLN.cs" />
     <Compile Include="LogicaDeNegocio\Configuraciones\RegistrarConfiguracion\IRegistrarConfiguracionLN.cs" />
+    <Compile Include="LogicaDeNegocio\Reportes\GenerarReportes\IGenerarReportesLN.cs" />
+    <Compile Include="LogicaDeNegocio\Reportes\ListarReportes\IListarReportesLN.cs" />
     <Compile Include="LogicaDeNegocio\Sinpes\ListarSinpePorCaja\IListarSinpePorCajaLN.cs" />
     <Compile Include="LogicaDeNegocio\Sinpes\RegistrarSinpe\IRegistrarSinpeLN.cs" />
+    <Compile Include="LogicaDeNegocio\Usuarios\EditarUsuario\IEditarUsuarioLN.cs" />
+    <Compile Include="LogicaDeNegocio\Usuarios\ListarUsuarios\IListarUsuariosLN.cs" />
+    <Compile Include="LogicaDeNegocio\Usuarios\ObtenerUsuario\IObtenerUsuarioLN.cs" />
+    <Compile Include="LogicaDeNegocio\Usuarios\RegistrarUsuario\IRegistrarUsuarioLN.cs" />
     <Compile Include="ModelosParaUI\CajaDto.cs" />
     <Compile Include="ModelosParaUI\ComercioDto.cs" />
     <Compile Include="ModelosParaUI\ConfiguracionDto.cs" />
     <Compile Include="ModelosParaUI\EventoBitacoraDto.cs" />
     <Compile Include="ModelosParaUI\EventoRegistradoDto.cs" />
     <Compile Include="ModelosParaUI\PaginaDeEventosDto.cs" />
+    <Compile Include="ModelosParaUI\ReporteMensualDto.cs" />
     <Compile Include="ModelosParaUI\SinpeDto.cs" />
+    <Compile Include="ModelosParaUI\UsuarioDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
